@@ -12,4 +12,6 @@ class ApplicationController < ActionController::Base
   #isso é um comentário
   #corrigi o bug
 
+  #outro comentário
+
 end

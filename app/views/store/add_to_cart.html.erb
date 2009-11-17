@@ -1,3 +1,4 @@
+<<<<<<< HEAD:app/views/store/add_to_cart.html.erb
 <div class="cart-title">Your Cart</div>
 <table>
 <% for cart_item in @cart.items %>
@@ -13,3 +14,11 @@
 </tr>
 </table>
 <%= button_to "Empty cart" , :action => :empty_cart %>
+=======
+<h2>Your Pragmatic Cart</h2>
+<ul>
+ <% for item in @cart.items %>
+  <li> <%= h item.title %> </li>
+  <% end %>
+</ul>
+>>>>>>> ae6580a44fcb0054da3a08d9e30bbc21f0ba4255:app/views/store/add_to_cart.html.erb

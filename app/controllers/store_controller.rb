@@ -4,7 +4,8 @@ class StoreController < ApplicationController
     @cart = find_cart
   end
 
-  def add_to_cart  
+  def add_to_cart
+    begin
     product = Product.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access invalid product #{params[:id]}")
@@ -15,7 +16,8 @@ class StoreController < ApplicationController
       respond_to do |format|
         format.js if request.xhr?
         format.html {redirect_to_index}
-      end
+       end
+    end
   end
 
   def empty_cart

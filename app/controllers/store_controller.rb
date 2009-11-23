@@ -1,4 +1,8 @@
 class StoreController < ApplicationController
+
+  def authorize
+  end
+  
   def index
     @products = Product.find_products_for_sale
     @cart = find_cart

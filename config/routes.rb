@@ -1,4 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.connect "/admin/login", :controller => 'sessions', :action => 'login'
+  
+  map.resources :users
+
+  map.resources :admin
+  
+  map.resources :store
+
   map.resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.

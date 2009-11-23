@@ -19,8 +19,5 @@ class AdminController < ApplicationController
 
   def logout
   end
-
-  def index
-  end
-
+  
 end

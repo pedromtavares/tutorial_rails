@@ -3,8 +3,8 @@
 
 class ApplicationController < ActionController::Base
 
-  #before_filter :authorize, :except => :login
-  session :session_key => 'depot_session_id'
+  layout "store"
+  before_filter :authorize, :except => :login
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 

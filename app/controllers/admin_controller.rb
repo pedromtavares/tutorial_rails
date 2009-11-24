@@ -18,6 +18,7 @@ class AdminController < ApplicationController
   end
 
   def logout
+
     session[:user_id] = nil
     flash[:notice] = "Loggedout"
     redirect_to(:action=> "login")

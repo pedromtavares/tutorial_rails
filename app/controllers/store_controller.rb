@@ -1,10 +1,7 @@
 class StoreController < ApplicationController
 
   before_filter :find_cart, :except => :empty_cart
-
-  def authorize
-  end
-  
+ 
   def index
     @products = Product.find_products_for_sale
   end
@@ -57,6 +54,11 @@ class StoreController < ApplicationController
 
   def find_cart
     @cart = (session[:cart] ||= Cart.new)
+  end
+
+  protected
+  
+  def authorize
   end
 
 end

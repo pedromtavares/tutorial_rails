@@ -1,2 +1,13 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+This is an online store application that has been used as an example for my Rails Learning Experience: http://pedromtavares.wordpress.com/
+
+This application implements:
+ - A catalog showing all available products.
+ - An AJAX-based shopping cart.
+ - An order checkout system.
+ - A simple administration system with restricted access, user and product management.
+ - A simple web-service providing XML feed.
+
+There are 3 main sections in this application:
+ - The buyer's side, which is implemented by the StoreController.
+ - The administrator's side, which is implemented by the AdminController along with the LoginController and the authorize method in the ApplicationController.
+ - The simple web service, which is implemented by the InfoController.

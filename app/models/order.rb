@@ -18,4 +18,9 @@ class Order < ActiveRecord::Base
       self.line_items << li
     end
   end
+
+  def total
+    self.line_items.sum(:total_price)
+  end
+  
 end

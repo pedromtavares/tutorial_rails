@@ -1,12 +1,10 @@
-<div id="order-list">
-  <h1>Listing orders</h1>
-  <table>
-    <tr><th>Buyer Name</th></tr>
-    <% for order in @orders %>
-    <tr>
-      <td><%=  link_to order.name, order %></td>
-    </tr>
-    <% end %>
-  </table>
-</div>
+<h1>Listing orders</h1>
+<table>
+  <tr><th>Buyer Name</th></tr>
+  <% for order in @orders %>
+  <tr>
+    <td><%=  link_to order.name, order %></td>
+  </tr>
+  <% end %>
+</table>
 <br />

@@ -4,22 +4,22 @@
 class ApplicationController < ActionController::Base
 
   layout "store"
-  before_filter :authorize, :except => :login
-  
+  before_filter :authorize, :prepare_time, :except => [:login,:register]
+
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   protected
 
   def authorize
-    unless User.find_by_id(session[:user_id])
-      flash[:notice] = "Please log in"
+    unless User.find_by_id(session[:user_id]) and session[:admin]
+      flash[:notice] = "Please log in as an administrator"
       redirect_to :controller => :admin, :action => :login
     end
   end
 
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  def prepare_time
+    @time = Time.now
+  end
 
 end

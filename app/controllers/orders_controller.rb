@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @user = User.find(@order.user)
     respond_to do |format|
       format.html
       format.xml {render :xml => @order}

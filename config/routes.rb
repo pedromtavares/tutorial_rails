@@ -10,6 +10,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :info
 
+  map.resources :personal
+
+  map.resources :register
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

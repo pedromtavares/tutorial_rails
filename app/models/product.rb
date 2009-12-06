@@ -10,6 +10,9 @@ class Product < ActiveRecord::Base
   validates_numericality_of :price
   validates_uniqueness_of :title
 
+  #playtime
+  validates_length_of :title, :minimum => 10, :message => "seems too short."
+
   validates_format_of :image_url,
                       :with => %r{\.(gif|jpg|png)$}i,
                       :message => 'must be a URL for GIF, JPG ' +

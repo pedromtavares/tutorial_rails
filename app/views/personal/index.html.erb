@@ -1,0 +1,9 @@
+<h1>Hello <%= @user.name %>!</h1> These are all your orders: 
+<table>
+  <% for order in @orders %>
+    <% user = User.find(order.user) %>
+  <tr>
+    <td>Order number: <%=  link_to order.id, {:action=>:show, :id=>order.id} %></td>
+  </tr>
+  <% end %>
+</table>

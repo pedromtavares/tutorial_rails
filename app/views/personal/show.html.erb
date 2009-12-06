@@ -1,8 +1,4 @@
 <p>
-  <b>Customer:</b>
-  <%= link_to @user.name, {:controller=>:users, :action=>:show, :id => @user.id} %>
-</p>
-<p>
   <b>Payment type:</b>
   <%= h @order.pay_type %>
 </p>
@@ -19,5 +15,4 @@
   <%= number_to_currency @order.total %>
 </p>
 
-<%= link_to 'Back', orders_path %>
-<%= link_to 'Destroy', @order ,:confirm => 'Are you sure?',:method => :delete %>
+<%= link_to 'Back', {:action=>:index} %>

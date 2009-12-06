@@ -24,4 +24,13 @@ class Cart
     @items.sum {|item| item.quantity}
   end
 
+  def remove_product(product)
+    current_item = @items.find {|item| item.product == product}
+    current_item.decrement_quantity
+    if current_item.quantity==0
+      @items.delete(current_item)
+    end
+    current_item
+  end
+
 end

@@ -4,10 +4,13 @@ class StoreController < ApplicationController
  
   def index
     @products = Product.find_products_for_sale
+    #playtime
+    @counter = increment_counter
   end
 
   def add_to_cart
     begin
+    session[:counter] = 0;
     product = Product.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access invalid product #{params[:id]}")
@@ -23,7 +26,19 @@ class StoreController < ApplicationController
 
   def empty_cart
     session[:cart] = nil
-    redirect_to_index
+    redirect_to_index unless request.xhr?
+  end
+
+  def remove_from_cart
+    begin
+    product = Product.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access invalid product #{params[:id]}")
+      redirect_to_index("Invalid Product")
+    else
+      @current_item = @cart.remove_product(product)
+      redirect_to_index unless request.xhr?
+    end
   end
 
   def checkout
@@ -54,6 +69,11 @@ class StoreController < ApplicationController
 
   def find_cart
     @cart = (session[:cart] ||= Cart.new)
+  end
+
+  def increment_counter
+    session[:counter] ||= 0
+    session[:counter] += 1
   end
 
   protected

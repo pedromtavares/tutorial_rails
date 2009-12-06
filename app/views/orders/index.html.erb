@@ -2,8 +2,9 @@
 <table>
   <tr><th>Buyer Name</th></tr>
   <% for order in @orders %>
+  <% user = User.find(order.user) %>
   <tr>
-    <td><%=  link_to order.name, order %></td>
+    <td><%=  link_to user.name, order %></td>
   </tr>
   <% end %>
 </table>

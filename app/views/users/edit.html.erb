@@ -8,12 +8,16 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :hashed_password %><br />
-    <%= f.text_field :hashed_password %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :salt %><br />
-    <%= f.text_field :salt %>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label 'Administrator?' %><br />
+    <%= f.select :admin, [['Yes', true],['No',false]] %>
   </p>
   <p>
     <%= f.submit 'Update' %>

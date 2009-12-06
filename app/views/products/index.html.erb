@@ -10,6 +10,7 @@
       <dl>
       <dt><%=h product.title %></dt>
       <dd><%=h truncate(product.description.gsub(/<.*?>/,''), 80) %></dd>
+      <dd><%=number_to_currency product.price %></dd>
       </dl>
       </td>
       <td class="list-actions">

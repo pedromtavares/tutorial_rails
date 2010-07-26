@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20091205194711) do
     t.string   "pay_type",   :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "user",                     :null => false
+    t.integer  "user"
   end
 
   create_table "products", :force => true do |t|
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20091205194711) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "admin"
+    t.boolean  "admin",           :default => false
     t.string   "email"
     t.string   "address"
   end
